@@ -1,2 +1,14 @@
-<h1>Shops#show</h1>
+<h1><%= @shop.name %></h1>
+
+
+<p><%= @shop.address %></p>
+<p><%= @shop.phone %></p>
+<p>Find me in app/views/posts/show.html.erb</p>
+
+<%= button_to "delete", @shop, :method=>:delete, :class=>:destroy %>
+
+
+<%= link_to 'update shop',  @shop.id.to_s + '/edit' %>
+
+
 <p>Find me in app/views/shops/show.html.erb</p>

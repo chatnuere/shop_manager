@@ -1,2 +1,16 @@
 <h1>Shops#new</h1>
+
+<%= form_for @shop, url: {action: "create"}, html: {class: "shop_form"} do |f| %>
+    <%= f.text_field :chain, placeholder: "Chain" %>
+    <%= f.text_field :name, placeholder: "name" %>
+    <%= f.text_field :latitude, placeholder: "Latitude" %>
+    <%= f.text_field :longitude, placeholder: "Longitude" %>
+    <%= f.text_field :address, placeholder: "Address" %>
+    <%= f.text_field :city, placeholder: "City" %>
+    <%= f.text_field :zip, placeholder: "Zipcode" %>
+    <%= f.telephone_field :phone, placeholder: "Phone" %>
+    <%= f.text_field :country_code, placeholder: "CountryCode" %>
+    <%= f.submit "Create Shop" %>
+<% end %>
+
 <p>Find me in app/views/shops/new.html.erb</p>

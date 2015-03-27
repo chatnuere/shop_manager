@@ -11,44 +11,32 @@ RSpec.describe ShopsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      shop = Shop.create(chain: "shopmium", name: "Shopmium de test", latitude: 47.9283864, longitude: 1.0447856, address: "120 rue du General de Gaulle", city: "Poissy", zip: 78300, phone: 120068308, country_code: "fr")
+      shop.save!
+      get "show", id: shop.id
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #new" do
     it "returns http success" do
+      match 'shops/new' => 'shops#gnew'
       get :new
       expect(response).to have_http_status(:success)
     end
+
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
-    end
-  end
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit
+      shop = Shop.create(chain: "shopmium", name: "Shopmium de test", latitude: 47.9283864, longitude: 1.0447856, address: "120 rue du General de Gaulle", city: "Poissy", zip: 78300, phone: 120068308, country_code: "fr")
+      shop.save!
+      get "edit", id: shop.id
+
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
-    end
-  end
 
 end
