@@ -38,15 +38,4 @@ RSpec.describe Shop, :type => :model do
     expect(shop.valid?).to eq(true)
   end
 
-  it "there can only be one shop on an address" do
-    shop = Shop.create(chain: "shopmium", name: "Shopmium de test2", latitude: 47.9283864, longitude: 1.0447856, address: "121 rue du General de Gaulle", city: "Poissy", zip: 78300, phone: 120068308, country_code: "fr")
-    shop.save!
-
-    shop2 = Shop.create(chain: "shopmium", name: "Shopmium de test2", latitude: 47.9283864, longitude: 1.0447856, address: "121 rue du General de Gaulle", city: "Poissy", zip: 78300, phone: 120068308, country_code: "fr")
-    expect(shop2.valid?).to eq(false)
-
-    shop3 = Shop.create(chain: "shopmium", name: "Shopmium à la même adresse mais pas au même nom", latitude: 47.9283864, longitude: 1.0447856, address: "121 rue du General de Gaulle", city: "Poissy", zip: 78300, phone: 120068308, country_code: "fr")
-    expect(shop3.valid?).to eq(true)
-  end
-  
 end
