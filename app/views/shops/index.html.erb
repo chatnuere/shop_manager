@@ -1,0 +1,17 @@
+<h1>Shops#index</h1>
+<p>Find me in app/views/shops/index.html.erb</p>
+
+<ul>
+  <% @shops.each do |shop| %>
+      <li>
+        <p>
+          <%= link_to shop.name, shop %>
+          <% if @show_distance %>
+              at  <%= shop.distance.round(2) %> km
+          <% end %>
+        </p>
+      </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @posts %>
