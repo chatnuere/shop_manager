@@ -1,5 +1,12 @@
 <h1><%= @shop.name %></h1>
 
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=960x600&sensor=true&zoom=15&markers=#{@shop.latitude}%2C#{@shop.longitude}" %>
+
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
 
 <p><%= @shop.address %></p>
 <p><%= @shop.phone %></p>
@@ -8,7 +15,19 @@
 <%= button_to "delete", @shop, :method=>:delete, :class=>:destroy %>
 
 
+
 <%= link_to 'update shop',  @shop.id.to_s + '/edit' %>
+
+<% if @hash %>
+    <script>
+
+      //  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
+
+
+
+    </script>
+<% end %>
 
 
 <p>Find me in app/views/shops/show.html.erb</p>

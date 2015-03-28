@@ -1,10 +1,29 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.paginate(:page => params[:page]).order('city ASC')
+    if params[:search].present? && params[:number].present?
+      case params[:searchType]
+        when 'range'
+          @shops = Shop.near(params[:search], params[:number], :units => :km, :order => 'distance')
+        else
+          @shops = Shop.near(params[:search], 20037.5, :units => :km, :order => 'distance').limit(params[:number].to_i)
+      end
+      @show_distance = true
+    else
+      @shops = Shop.paginate(:page => params[:page]).order('city ASC')
+    end
+
+    gon.shops = []
+    for shop in @shops do
+      gon.shops  <<  {lat: shop.latitude, lng: shop.longitude, name: shop.name, infowindow: '<a class="toShop" href="/shops/'+ shop.id.to_s+'">'+shop.address.to_s + '</a>'}
+    end
+
+
   end
 
   def show
     @shop = Shop.find(params[:id])
+
+
   end
 
   def new

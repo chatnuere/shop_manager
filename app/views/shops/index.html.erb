@@ -3,6 +3,26 @@
 
 <%= link_to 'new shop', 'shops/new' %>
 
+<%= form_tag root_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] , placeholder: "Address" %>
+      <%= number_field_tag :number, params[:number], min: 0, placeholder: "max range in kilometers" %>
+      <%= label_tag 'searchType_range', '<span>range</span>'.html_safe %>
+      <%= radio_button_tag :searchType, 'range' ,true %>
+      <%= label_tag 'searchType_limit', '<span>limit</span>'.html_safe %>
+      <%= radio_button_tag :searchType, 'limit'   %>
+      <%= submit_tag "Search Near", :name => nil %>
+      <%= link_to 'reset', root_url %>
+    </p>
+<% end %>
+
+
+<div style='width: 800px;'>
+  <div id="sidebar_builder" style='width: 800px; height: 400px;'></div>
+</div>
+<div id='sidebar_container'>
+</div>
+
 <ul>
   <% @shops.each do |shop| %>
       <li>
@@ -16,4 +36,17 @@
   <% end %>
 </ul>
 
+<% if @hash %>
+    <script>
+
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
+    </script>
+<% end %>
+
+<% if !@show_distance %>
 <%= will_paginate @posts %>
+
+<% end %>
+<%= include_gon %>
+<% javascript 'google_map_sidebar' %>
