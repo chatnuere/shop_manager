@@ -1,0 +1,127 @@
+header {
+  h1, h2 {
+    padding: 1.563em 0;
+    img {
+      display: inline-block;
+      width: 80%;
+      max-width: 259px;
+      margin: 0 10%;
+    }
+  }
+
+  .form {
+    background-color: $dark-grey;
+    text-align: right;
+    position: relative;
+    padding: 0.500em 10%;
+
+    > a {
+      display: inline-block;
+      font-size: 2.278em;
+      @include box-sizing(boerder-box);
+      @include transition(background-color 0.3s ease-out);
+      width: 0.823em;
+      height: 0.823em;
+      overflow: hidden;
+      padding: 0.137em;
+      color: #fff;
+      background-color: $brand-color-flat;
+      font-weight: bold;
+      line-height: 0.85;
+      text-align: center;
+      border: 1px solid $brand-color;
+      @include border-radius(5px);
+      &:nth-child(2) {
+        position: relative;
+        .icon-loupe {
+          line-height: 0;
+          font-size: 0.7em;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%, -50%));
+
+        }
+      }
+      &:hover {
+        background-color: $brand-color;
+
+      }
+    }
+
+    #the_form {
+      font-weight: normal;
+      position: absolute;
+      z-index: 9999;
+      background-color: $brand-color-flat;
+      top: 100%;
+      right: 10%;
+      width: 18.375em;
+      @include box-sizing(border-box);
+      padding: 0.625em;
+      .reset{
+        font-size: 0.7em;
+        margin-bottom: 1em;
+        text-decoration: underline;
+        display: inline-block;
+        &:hover{
+          color: #fff;
+        }
+      }
+      input {
+        outline: none;
+      }
+      input[type="text"], input[type="number"] {
+        display: block;
+        width: 100%;
+        @include box-sizing(border-box);
+        font-size: 1.3em;
+        padding: 0.3em;
+        margin-bottom: 0.7em;
+      }
+      .radio, .submit{
+        text-align: center;
+      }
+
+      .radio{
+        width: 75%;
+        margin: 0 auto;
+        text-align: left;
+        margin-bottom: 1em;
+        p{
+          margin-bottom: 0.5em;
+          font-size: 1.1em;
+        }
+      }
+
+      .submit {
+        input {
+          display: inline-block;
+          padding: 0.3em 1em;
+          background-color: #fff;
+          border: 1px solid $brand-color;
+
+          color: $brand-color-flat;
+          font-size: 1.3em;
+          cursor: pointer;
+          @include transition(all 0.3s ease-out);
+          &:hover {
+            @include border-radius(5px);
+            color: $brand-color;
+          }
+        }
+      }
+      @include transition(all 0.3s ease-out);
+      opacity: 0;
+      pointer-events: none;
+      &.active{
+        opacity: 1;
+        pointer-events: initial;
+      }
+    }
+  }
+}
+
+.pac-container.hdpi {
+
+}

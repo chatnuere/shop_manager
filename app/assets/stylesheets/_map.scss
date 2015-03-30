@@ -1,0 +1,50 @@
+.gm-style-iw{
+  position: relative!important;
+  top: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+  left: 0!important;
+  width:  260px;
+  height: auto!important;
+  min-height: 80px ;
+
+  >div{
+    width: auto!important;
+    height: auto!important;
+    overflow: visible!important;
+
+    >div{
+      padding: 8px;
+      >i , >div{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      >i{
+        font-size: 3em;
+        padding: 20px 15px 22px 9px;
+        @include border-radius(5px);
+        background-color: $brand-color-flat;
+        color: #fff;
+        margin-top: 1px;
+      }
+      >div{
+        margin-left: 10px;
+        width: 178px;
+        p:first-child{
+          font-size: 1.5em;
+          font-weight: bold;
+          margin-bottom: 0.4em;
+        }
+        p:nth-child(2){
+          font-size: 1.3em;
+          margin-bottom: 0.5em;
+        }
+        a:last-child{
+          display: block;
+          text-align: right;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@ class ShopsController < ApplicationController
 
     gon.shops = []
     for shop in @shops do
-      gon.shops  <<  {lat: shop.latitude, lng: shop.longitude, name: shop.name, infowindow: '<a class="toShop" href="/shops/'+ shop.id.to_s+'">'+shop.address.to_s + '</a>'}
+      gon.shops  <<  {id: shop.id, chain: shop.chain, phone: shop.phone, address: shop.address ,lat: shop.latitude, lng: shop.longitude, name: shop.name, infowindow: create_info_bubble(shop) ,  picture: {url: "https://cldup.com/4CrHdVk17l-2000x2000.png", width:  34, height: 34}}
     end
 
 
@@ -66,5 +66,9 @@ class ShopsController < ApplicationController
   private
   def shop_params
     params.permit(:chain, :name, :latitude, :longitude, :address, :city, :zip, :phone, :country_code)
+  end
+
+  def create_info_bubble(shop)
+    buble = '<i class="icon-chain"></i><div><p>'+shop.chain.to_s + '</p><p>'+shop.name.to_s + '</p><a class="toShop" href="/shops/'+ shop.id.to_s+'">voir la fiche</a></div>'
   end
 end

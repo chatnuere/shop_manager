@@ -1,0 +1,60 @@
+#sidebar_container {
+  > li {
+    background-color: $light-grey;
+    padding: 2.125em 0;
+    div {
+      max-width: 645px;
+      margin: 0 auto;
+      ul {
+        display: inline-block;
+        vertical-align: top;
+        li {
+          a {
+            @include transition(color 0.3s ease-out);
+            &:hover {
+              color: $brand-color;
+            }
+          }
+          margin-bottom: 1em;
+          i, p {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          i {
+            font-size: 2em;
+          }
+          p {
+            margin-left: 20px;
+            max-width: 370px;
+            font-size: 1.3em;
+          }
+
+        }
+      }
+      ul:first-child {
+        width: 90%;
+        max-width: 465px;
+      }
+      ul:last-child {
+        width: 90%;
+        max-width: 180px;
+        text-align: right;
+        li {
+          display: inline-block;
+          vertical-align: top;
+          font-size: 1.3em;
+        }
+        li:first-child{
+          margin-top:0.3em;
+        }
+        li:last-child{
+          font-size: 2em;
+        }
+      }
+    }
+  }
+  > li:nth-child(even) {
+    background-color: $dark-grey;
+  }
+
+}

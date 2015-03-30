@@ -1,12 +1,7 @@
-<h1><%= @shop.name %></h1>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=960x600&sensor=true&zoom=15&markers=#{@shop.latitude}%2C#{@shop.longitude}" %>
-
-
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
-
+<%= link_to 'Delete', shops_path(@shop), :confirm=>"Are you sure", :method=>:delete %>
 
 <p><%= @shop.address %></p>
 <p><%= @shop.phone %></p>

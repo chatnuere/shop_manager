@@ -16,3 +16,33 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+
+$(document).ready(function(){
+
+    $("#geocomplete").geocomplete();
+
+
+
+
+    if( $('#sidebar_builder').length >0) {
+        $(window).bind('page:change', function () {
+            mapLoading();
+        });
+    }
+
+
+    $('body').on('click', '.delete', function(e){
+        if (!confirm("Êtes vous sûr de voulir supprimer ce magasin?")) {
+           return false
+        }
+    })
+
+
+
+    $('.formBtn').on('click', function(){
+       $('#the_form').toggleClass('active');
+    });
+
+});
+

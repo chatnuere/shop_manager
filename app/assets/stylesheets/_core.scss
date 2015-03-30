@@ -1,0 +1,63 @@
+html {
+  background-color: $main;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $font-size;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: $main;
+  a {
+    color: $main;
+    text-decoration: none;
+    &:hover {
+      color: $brand-color-flat;
+    }
+  }
+}
+
+.pagination{
+  height: 6.250em;
+  padding-top: 3.125em;
+  @include box-sizing(border-box);
+  text-align: center;
+  color: $brand-color-flat;
+  *{
+    cursor: pointer;
+    padding-top: 2px;
+  }
+  .gap{
+    cursor: default;
+  }
+  .disabled, .current{
+    cursor: default;
+    padding: 2px 1px 0 2px;
+  }
+  .disabled{
+    opacity: 0.5;
+  }
+  .current{
+    border: 1px solid $brand-color;
+    @include border-radius(3px);
+  }
+  .previous_page, .next_page{
+    text-decoration: underline;
+  }
+  .previous_page{
+    margin-right: 0.625em;
+  }
+  .next_page{
+    margin-left: 0.625em;
+  }
+  a{
+    color: $brand-color-flat;
+    @include transition(color 0.5s ease-out);
+    &:hover{
+      color: $brand-color;
+    }
+
+  }
+}
