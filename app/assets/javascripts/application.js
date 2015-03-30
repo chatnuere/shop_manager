@@ -18,31 +18,25 @@
 //= require_tree .
 
 
-$(document).ready(function(){
-
-    $("#geocomplete").geocomplete();
-
-
-
-
+$(document).on('page:change', function () {
     if( $('#sidebar_builder').length >0) {
-        $(window).bind('page:change', function () {
-            mapLoading();
-        });
+         mapLoading();
     }
 
+    if($('#one_marker').length >0){
+        mapOneMarker();
+    }
 
     $('body').on('click', '.delete', function(e){
         if (!confirm("Êtes vous sûr de voulir supprimer ce magasin?")) {
-           return false
+            return false
         }
     })
 
-
+    $("#geocomplete").geocomplete();
 
     $('.formBtn').on('click', function(){
-       $('#the_form').toggleClass('active');
+        $('#the_form').toggleClass('active');
     });
-
 });
 

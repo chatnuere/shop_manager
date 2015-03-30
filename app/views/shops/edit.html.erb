@@ -1,16 +1,45 @@
-<h1>Shops#edit</h1>
+<section class="shop">
+  <div id="one_marker"></div>
+  <div class="shopInfo">
+    <%= form_for @shop, url: {action: "update"}, html: {class: "shop_form"} do |f| %>
+    <h1>
+      <p><%= f.text_field :chain, placeholder: "Chain" %></p>
 
-<%= form_for @shop, url: {action: "update"}, html: {class: "shop_form"} do |f| %>
-    <%= f.text_field :chain, placeholder: "Chain" %>
-    <%= f.text_field :name, placeholder: "name" %>
-    <%= f.text_field :latitude, placeholder: "Latitude" %>
-    <%= f.text_field :longitude, placeholder: "Longitude" %>
-    <%= f.text_field :address, placeholder: "Address" %>
-    <%= f.text_field :city, placeholder: "City" %>
-    <%= f.text_field :zip, placeholder: "Zipcode" %>
-    <%= f.telephone_field :phone, placeholder: "Phone" %>
-    <%= f.text_field :country_code, placeholder: "CountryCode" %>
-    <%= f.submit "Edit Shop" %>
-<% end %>
+      <p><%= f.text_field :name, placeholder: "name" %></p>
+    </h1>
 
-<p>Find me in app/views/shops/edit.html.erb</p>
+    <div class="wrapper">
+      <div class="address">
+        <i class="icon-location"></i>
+
+        <div>
+          <p><%= f.text_field :address, placeholder: "Adresse", readonly: true %></p>
+
+          <p><%= f.text_field :zip, placeholder: "Code Postal",readonly: true %>  <%= f.text_field :city, placeholder: "Ville", readonly: true %><%= f.text_field :country_code, placeholder: "Pays", readonly: true %></p>
+        </div>
+      </div>
+
+      <div class="phoneWrap">
+        <i class="icon-phone"></i>
+
+        <p class="phone"><%= f.telephone_field :phone, placeholder: "Phone" %></p>
+      </div>
+
+      <%= f.submit "Edit Shop" %>
+
+    <% end %>
+    </div>
+
+    <div class="controll">
+      <%= link_to "", @blog, :method => :delete, class: 'delete icon-cancel-1' %>
+      <%= link_to '', @shop.id.to_s + '/edit', class: 'icon-edit' %>
+    </div>
+  </div>
+</section>
+<nav class="otherShops">
+  <%= link_to("Previous Shop", @shop.previous_shop) if @shop.previous_shop %>
+  <%= link_to("Next Shop", @shop.next_shop) if @shop.next_shop %>
+</nav>
+<%= include_gon %>
+<% javascript 'google_map_one_marker' %>
+

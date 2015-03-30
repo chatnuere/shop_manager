@@ -14,7 +14,7 @@ class ShopsController < ApplicationController
 
     gon.shops = []
     for shop in @shops do
-      gon.shops  <<  {id: shop.id, chain: shop.chain, phone: shop.phone, address: shop.address ,lat: shop.latitude, lng: shop.longitude, name: shop.name, infowindow: create_info_bubble(shop) ,  picture: {url: "https://cldup.com/4CrHdVk17l-2000x2000.png", width:  34, height: 34}}
+      gon.shops  <<  {id: shop.id, chain: shop.chain, phone: shop.phone, address: shop.address ,lat: shop.latitude, lng: shop.longitude, name: shop.name, infowindow: create_info_bubble(shop) ,  picture: {url: "https://cldup.com/4CrHdVk17l-2000x2000.png", width:  34, height: 34, anchor: [17,17]}}
     end
 
 
@@ -22,6 +22,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    gon.shop  =  {lat: @shop.latitude, lng: @shop.longitude}
 
 
   end
@@ -52,6 +53,7 @@ class ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    gon.shop  =  {lat: @shop.latitude, lng: @shop.longitude}
   end
 
   def destroy

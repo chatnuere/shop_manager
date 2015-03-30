@@ -1,0 +1,101 @@
+.shop {
+  position: relative;
+  z-index: 1;
+
+  #one_marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .shopInfo {
+    width: 380px;
+    background-color: rgba(#000, 0.5);
+    padding: 50px 0 0;
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      color: $brand-color;
+      padding: 0 0 50px 50px;
+      p:first-child {
+        margin-bottom: 0.3em;
+      }
+      p:last-child {
+        font-size: 0.8em;
+        font-weight: normal;
+      }
+    }
+    .wrapper {
+      background-color: rgba(#fff, 0.05);
+      padding: 50px 0 50px 50px;
+
+      > div {
+        > i, .phone, > div {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        > i {
+          color: #fff;
+          font-size: 2.5em;
+        }
+        > div, > p a {
+          color: $brand-color;
+          font-size: 1.2em;
+        }
+      }
+      .address {
+        margin-bottom: 50px;
+      }
+      .phoneWrap {
+        p {
+          a:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .controll {
+      padding: 0.5em 50px 0.2em 0;
+      text-align: right;
+      a {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 2em;
+        &:first-child {
+          font-size: 3em;
+        }
+        &:last-child {
+          margin-top: 0.23em;
+        }
+      }
+    }
+  }
+
+}
+
+.otherShops {
+  text-align: center;
+  font-size: 1.4em;
+  padding: 1.5em;
+  height: 20px;
+  margin-bottom: 4em;
+  a {
+    display: inline-block;
+    margin: 0 0.5em;
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  a:first-child {
+    float: left;
+  }
+  a:last-child {
+    float: right;
+  }
+}

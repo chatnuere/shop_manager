@@ -9,4 +9,12 @@ class Shop < ActiveRecord::Base
     [address, city, zip].compact.join(', ')
   end
 
+  def previous_shop
+    Shop.where(["id < ?", id]).last
+  end
+
+  def next_shop
+    Shop.where(["id > ?", id]).first
+  end
+
 end

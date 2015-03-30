@@ -1,28 +1,39 @@
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
-<%= link_to 'Delete', shops_path(@shop), :confirm=>"Are you sure", :method=>:delete %>
+<section class="shop">
+  <div id="one_marker"></div>
+  <div class="shopInfo">
+    <h1>
+      <p><%= @shop.chain %></p>
 
-<p><%= @shop.address %></p>
-<p><%= @shop.phone %></p>
-<p>Find me in app/views/posts/show.html.erb</p>
+      <p><%= @shop.name %></p>
+    </h1>
 
-<%= button_to "delete", @shop, :method=>:delete, :class=>:destroy %>
+    <div class="wrapper">
+      <div class="address">
+        <i class="icon-location"></i>
 
+        <div>
+          <p><%= @shop.address %></p>
 
+          <p><%= @shop.zip %>  <%= @shop.city %></p>
+        </div>
+      </div>
 
-<%= link_to 'update shop',  @shop.id.to_s + '/edit' %>
+      <div class="phoneWrap">
+        <i class="icon-phone"></i>
 
-<% if @hash %>
-    <script>
+        <p class="phone"><%= link_to @shop.phone, 'tel:' + @shop.phone.to_s %></p>
+      </div>
+    </div>
 
-      //  markers = handler.addMarkers(<%= raw @hash.to_json %>);
-
-
-
-
-    </script>
-<% end %>
-
-
-<p>Find me in app/views/shops/show.html.erb</p>
+    <div class="controll">
+      <%= link_to "", @blog, :method => :delete, class: 'delete icon-cancel-1' %>
+      <%= link_to '', @shop.id.to_s + '/edit', class: 'icon-edit' %>
+    </div>
+  </div>
+</section>
+<nav class="otherShops">
+  <%= link_to("Previous Shop", @shop.previous_shop) if @shop.previous_shop %>
+  <%= link_to("Next Shop", @shop.next_shop) if @shop.next_shop %>
+</nav>
+<%= include_gon %>
+<% javascript 'google_map_one_marker' %>
