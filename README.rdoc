@@ -5,7 +5,8 @@ setup :
 launch you postgres SQL database
 set your database ids in config/database.yml
 
-run  $ gem install bundler
+run
+     $ gem install bundler
      $ bundle install
      $ rake db:create db:migrate
      $ rake data:import
