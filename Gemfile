@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'geocoder', '~> 1.2.8'
 gem 'underscore-rails'
 gem 'gmaps4rails'
+gem 'dynamic_form'
 gem 'gon', '~> 5.2.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development

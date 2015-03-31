@@ -1,0 +1,10 @@
+fr:
+ activerecord:
+   errors:
+     models:
+       shop:
+         attributes:
+           phone:
+             length: ": veuillez entrer un numéro valide s'il vous plait"
+           country_code:
+             length: " n'est pas valide, veuillez vous référer à la référence ISO 3166-1 alpha 2"

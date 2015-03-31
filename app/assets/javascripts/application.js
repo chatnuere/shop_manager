@@ -19,15 +19,15 @@
 
 
 $(document).on('page:change', function () {
-    if( $('#sidebar_builder').length >0) {
-         mapLoading();
+    if ($('#sidebar_builder').length > 0) {
+        mapLoading();
     }
 
-    if($('#one_marker').length >0){
+    if ($('#one_marker').length > 0) {
         mapOneMarker();
     }
 
-    $('body').on('click', '.delete', function(e){
+    $('body').on('click', '.delete', function (e) {
         if (!confirm("Êtes vous sûr de voulir supprimer ce magasin?")) {
             return false
         }
@@ -35,7 +35,7 @@ $(document).on('page:change', function () {
 
     $("#geocomplete").geocomplete();
 
-    $('.formBtn').on('click', function(){
+    $('.formBtn').on('click', function () {
         $('#the_form').toggleClass('active');
     });
 });

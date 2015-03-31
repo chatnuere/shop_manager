@@ -1,0 +1,10 @@
+fr:
+  activerecord:
+    attributes:
+      shop:
+        phone: Le téléphone
+        chain: La chaine du magasin
+        address: L'adresse
+        city: La ville
+        zip: Le code postal
+        country_code: Le code pays

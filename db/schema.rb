@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150327094147) do
     t.string   "address"
     t.string   "city"
     t.integer  "zip"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "country_code"
     t.datetime "created_at"
     t.datetime "updated_at"

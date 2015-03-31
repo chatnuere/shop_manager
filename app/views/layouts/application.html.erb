@@ -17,7 +17,7 @@
   <% end %>
 
   <nav class="form">
-    <%= link_to '+'.html_safe, 'shops/new', class: 'btn' %>
+    <%= link_to '+'.html_safe, new_shop_path , class: 'btn' %>
     <%= link_to '<span class="icon-loupe"></span>'.html_safe, 'javascript:void(0);', class: 'btn formBtn' %>
 
     <%= form_tag root_path, id: 'the_form', :method => :get do %>

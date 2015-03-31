@@ -8,7 +8,7 @@ class CreateShops < ActiveRecord::Migration
       t.string :address
       t.string :city
       t.integer :zip
-      t.integer :phone
+      t.string :phone
       t.string :country_code
 
       t.timestamps

@@ -27,7 +27,7 @@
 
     <div class="controll">
       <%= link_to "", @blog, :method => :delete, class: 'delete icon-cancel-1' %>
-      <%= link_to '', @shop.id.to_s + '/edit', class: 'icon-edit' %>
+      <%= link_to '', edit_shop_path(@shop), class: 'icon-edit' %>
     </div>
   </div>
 </section>
@@ -37,3 +37,4 @@
 </nav>
 <%= include_gon %>
 <% javascript 'google_map_one_marker' %>
+

@@ -1,31 +1,38 @@
 <section class="shop">
   <div id="one_marker"></div>
-  <div class="shopInfo">
+  <div class="shopInfo form">
     <%= form_for @shop, url: {action: "update"}, html: {class: "shop_form"} do |f| %>
-    <h1>
-      <p><%= f.text_field :chain, placeholder: "Chain" %></p>
+        <%= render 'partials/error_messages', object: f.object %>
+        <h1>
+          <p><span>Nom de la chaine :</span><%= f.text_field :chain, placeholder: "Le nom de la chaine" %></p>
 
-      <p><%= f.text_field :name, placeholder: "name" %></p>
-    </h1>
+          <p><span>Nom du magasin :</span><%= f.text_field :name, placeholder: "name" %></p>
+        </h1>
 
-    <div class="wrapper">
-      <div class="address">
-        <i class="icon-location"></i>
+        <div class="wrapper">
+          <div class="address geocompleteInput">
+            <p>Vérifier une adresse avec Google map : </p>
+            <p><%= text_field_tag "geocodeAdress", nil, placeholder: 'Adresse complète' %></p>
+          </div>
+          <div class="address">
+            <i class="icon-location"></i>
 
-        <div>
-          <p><%= f.text_field :address, placeholder: "Adresse", readonly: true %></p>
+            <div>
+              <p><%= f.text_field :address, placeholder: "Adresse" %></p>
 
-          <p><%= f.text_field :zip, placeholder: "Code Postal",readonly: true %>  <%= f.text_field :city, placeholder: "Ville", readonly: true %><%= f.text_field :country_code, placeholder: "Pays", readonly: true %></p>
-        </div>
-      </div>
+              <p><%= f.text_field :zip, placeholder: "Code Postal" %>  <%= f.text_field :city, placeholder: "Ville" %><%= f.text_field :country_code, placeholder: "Pays" %></p>
+            </div>
+          </div>
 
-      <div class="phoneWrap">
-        <i class="icon-phone"></i>
+          <div class="phoneWrap">
+            <i class="icon-phone"></i>
 
-        <p class="phone"><%= f.telephone_field :phone, placeholder: "Phone" %></p>
-      </div>
+            <p class="phone"><%= f.telephone_field :phone, placeholder: "Phone" %></p>
+          </div>
 
-      <%= f.submit "Edit Shop" %>
+          <div class="submit">
+            <%= f.submit "Mettre à jour le Magasin" %>
+          </div>
 
     <% end %>
     </div>

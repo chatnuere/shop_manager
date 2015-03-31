@@ -1,10 +1,69 @@
+var markerCache
+function updateForm(result){
+    var cleanAddresses = [];
+    var addresses = $.parseHTML(result.adr_address);
+
+    for (var i = 0 ; i< addresses.length; i++) {
+        var object = $(addresses[i]);
+        cleanAddresses[object.attr('class')] = object.html()
+    }
+
+    if(cleanAddresses['street-address']){
+        $('#shop_address').val(cleanAddresses['street-address'])
+    }else{
+        $('#shop_address').val(result.name)
+    }
+    if(cleanAddresses['postal-code']){
+        $('#shop_zip').val(cleanAddresses['postal-code'])
+        $('#shop_country_code').val(result.address_components[result.address_components.length - 2].short_name);
+    }else{
+        $('#shop_zip').val('')
+        $('#shop_country_code').val(result.address_components[result.address_components.length - 1].short_name);
+    }
+    if(cleanAddresses['locality']){
+        $('#shop_city').val(cleanAddresses['locality'])
+    }else{
+        $('#shop_city').val('')
+    }
+}
+
+
+function updateMarker( lat , lng){
+
+
+
+    handler.removeMarkers(markerCache)
+
+    markerCache = handler.addMarkers([
+            {
+                lat: lat,
+                lng: lng,
+                picture: {
+                    url: "https://cldup.com/4CrHdVk17l-2000x2000.png",
+                    width: 34,
+                    height: 34,
+                    anchor: [17,17]
+                }
+
+            }
+        ]);
+    handler.resetBounds();
+    handler.bounds.extendWith(markerCache);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
+
+
+}
+
 function mapOneMarker() {
-    if(gon.shop){
+    if(typeof gon !== 'undefined'){
         jsonData = gon.shop;
         jsonData.zoom = 16;
+        var isMarker = true
     }else{
         jsonData =  {lat: 47.0810120, lng: 2.3987820};
         jsonData.zoom = 5;
+        var isMarker = false
     }
 
     var image = {
@@ -34,8 +93,8 @@ function mapOneMarker() {
             }
     }}, function () {
 
-        if(gon.shop) {
-            markers = handler.addMarkers([
+        if(isMarker) {
+            markerCache = handler.addMarkers([
                 {
                     lat: jsonData.lat,
                     lng: jsonData.lng,
@@ -50,4 +109,12 @@ function mapOneMarker() {
             ]);
         }
     });
+
+
+    $("#geocodeAdress").geocomplete().bind("geocode:result", function (event, result) {
+
+        updateForm(result);
+        updateMarker(result.geometry.location.k ,result.geometry.location.B )
+    });
+
 }

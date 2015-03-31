@@ -32,7 +32,7 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new(chain: params[:shop][:chain], name: params[:shop][:name], latitude: params[:shop][:latitude], longitude: params[:shop][:longitude], address: params[:shop][:address], city: params[:shop][:city], zip: params[:shop][:zip], phone: params[:shop][:phone], country_code: params[:shop][:country_code])
+    @shop = Shop.new(chain: params[:shop][:chain], name: params[:shop][:name], address: params[:shop][:address], city: params[:shop][:city], zip: params[:shop][:zip], phone: params[:shop][:phone], country_code: params[:shop][:country_code])
     if @shop.save
       flash[:success] = "Shop registered"
       redirect_to @shop
@@ -43,7 +43,7 @@ class ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
-    if @shop.update_attributes(chain: params[:shop][:chain], name: params[:shop][:name], latitude: params[:shop][:latitude], longitude: params[:shop][:longitude], address: params[:shop][:address], city: params[:shop][:city], zip: params[:shop][:zip], phone: params[:shop][:phone], country_code: params[:shop][:country_code])
+    if @shop.update_attributes(chain: params[:shop][:chain], name: params[:shop][:name], address: params[:shop][:address], city: params[:shop][:city], zip: params[:shop][:zip], phone: params[:shop][:phone], country_code: params[:shop][:country_code])
       flash[:success] = "Update ok"
       redirect_to @shop
     else
