@@ -4,9 +4,9 @@
     <%= form_for @shop, url: {action: "create"}, html: {class: "shop_form"} do |f| %>
         <%= render 'partials/error_messages', object: f.object %>
         <h1>
-          <p><span>Nom de la chaine :</span><%= f.text_field :chain, placeholder: "Le nom de la chaine" %></p>
+          <p>Nom de la chaine :</p><%= f.text_field :chain, placeholder: "Le nom de la chaine" %>
 
-          <p><span>Nom du magasin :</span><%= f.text_field :name, placeholder: "name" %></p>
+          <p>Nom du magasin :</p><%= f.text_field :name, placeholder: "name" %>
         </h1>
 
         <div class="wrapper">

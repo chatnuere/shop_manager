@@ -4,8 +4,8 @@ class Shop < ActiveRecord::Base
   validates :phone, length: {minimum: 10, maximum: 30, :message => :length }
   validates :country_code, length: {is: 2, :message => :length }
 
-  geocoded_by :addressMethod
-  after_validation :geocode, :if => :address_changed?
+  #geocoded_by :addressMethod
+  #after_validation :geocode, :if => :address_changed?
 
   def addressMethod
     [address, city, zip].compact.join(', ')

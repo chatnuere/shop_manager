@@ -112,17 +112,19 @@
 
   h1 {
     font-size: 1.5em;
+
     p {
-      span {
-        display: inline-block;
-        margin-bottom: 0.5em;
-      }
-      &:first-child {
-        margin-bottom: 1em;
-      }
+      margin-bottom: 0.3em;
     }
     input {
       font-size: 0.8em;
+      display: block;
+      &:nth-child(2){
+        margin-bottom: 1em;
+      }
+    }
+    .field_with_errors:nth-child(2){
+      margin-bottom: 1em;
     }
   }
   input {
