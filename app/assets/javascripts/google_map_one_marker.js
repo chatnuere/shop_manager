@@ -56,14 +56,16 @@ function updateMarker( lat , lng){
 }
 
 function mapOneMarker() {
-    if(typeof gon !== 'undefined'){
-        jsonData = gon.shop;
-        jsonData.zoom = 16;
-        var isMarker = true
-    }else{
-        jsonData =  {lat: 47.0810120, lng: 2.3987820};
-        jsonData.zoom = 5;
-        var isMarker = false
+    var jsonData =  {lat: 47.0810120, lng: 2.3987820};
+    jsonData.zoom = 5;
+    var isMarker = false
+    if (typeof gon !== 'undefined') {
+        if (typeof gon.shop !== 'undefined') {
+            console.log(gon.shop)
+            jsonData = gon.shop;
+            jsonData.zoom = 16;
+            isMarker = true
+        }
     }
 
     var image = {
