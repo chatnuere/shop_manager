@@ -75,7 +75,14 @@
       }
     }
   }
-
+.controll {
+  a{
+    color: #fff;
+    &:hover{
+      color: rgba($brand-color , 0.8);
+    }
+  }
+}
 }
 
 .otherShops {
@@ -129,7 +136,7 @@
   }
 
   .address input {
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
 
   .geocompleteInput{
@@ -157,6 +164,41 @@
       @include transition(backgroud-color 0.3s ease-out);
       &:hover{
         background-color: rgba($brand-color , 0.8);
+      }
+    }
+  }
+
+
+  .field_with_errors{
+    input{
+
+      border: 1px solid rgba($brand-color, 0.5);
+    }
+  }
+
+  .phoneWrap{
+    .field_with_errors{
+      display: inline-block;
+      width: 217px;
+    }
+  }
+
+  #error_explanation{
+    opacity: 0.7;
+    h3{
+      text-align: center;
+      color: $brand-color;
+      font-size: 1.3em;
+      margin-bottom: 0.8em;
+    }
+    ul{
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      li{
+        list-style-type: circle;
+        color: $brand-color;
+        margin-bottom: 0.4em;
       }
     }
   }

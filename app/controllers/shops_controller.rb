@@ -37,7 +37,7 @@ class ShopsController < ApplicationController
       flash[:success] = "Shop registered"
       redirect_to @shop
     else
-      redirect_to root_url
+      render 'new'
     end
   end
 

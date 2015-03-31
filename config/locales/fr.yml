@@ -4,6 +4,7 @@ fr:
       shop:
         phone: Le téléphone
         chain: La chaine du magasin
+        name: Le nom du magasin
         address: L'adresse
         city: La ville
         zip: Le code postal
