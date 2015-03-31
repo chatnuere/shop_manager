@@ -10,7 +10,8 @@ run  $ gem install bundler
      $ rake db:create db:migrate
      $ rake data:import
 
-go to app/models/shop.rb  and uncomment   #geocoded_by :addressMethod
+go to app/models/shop.rb  and uncomment :
+                                          #geocoded_by :addressMethod
                                           #after_validation :geocode, :if => :address_changed?
 
 ready to go!
