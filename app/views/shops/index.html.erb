@@ -2,14 +2,14 @@
   <div id="sidebar_builder" style='width: 100%; height: 600px;'></div>
 </div>
 <% if !@show_distance %>
-    <%= will_paginate @posts , :previous_label => 'Précédent', :next_label => 'Suivant' %>
+    <%= will_paginate @posts  %>
 <% end %>
 <ul id='sidebar_container'>
 </ul>
 
 
 <% if !@show_distance %>
-<%= will_paginate @posts , :previous_label => 'Précédent', :next_label => 'Suivant' %>
+<%= will_paginate @posts  %>
 <% end %>
 <%= include_gon %>
 <% javascript 'google_map_sidebar' %>
